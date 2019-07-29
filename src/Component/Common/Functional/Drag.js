@@ -193,9 +193,9 @@ const Dragwindow = styled.div.attrs(({initial}) => ({style: {width: initial.drag
  */
 const Drag = (props) => {
     // console.log(props)
-    // const {Globalcontext, Globalcontextdispatch} = useContext(Topcontext);
-    const [state, setState] = useState({ [props.initialvar.id]: {isclose:false} });
-    console.log(state)
+    const {Globalcontext, Globalcontextdispatch} = useContext(Topcontext);
+    // const [state, setState] = useState({ [props.initialvar.id]: {isclose:false} });
+    // console.log(state)
     useLayoutEffect(() => {
         let propsid = props.initialvar.id;
         let initialgetdragwidth = 300;//視窗初始寬度       1.修改初始視窗大小
@@ -353,14 +353,14 @@ const Drag = (props) => {
 
             //關閉按鈕
             oClose.onclick = function () {
-                // console.log(Globalcontext)
-                // Globalcontextdispatch({
-                //     ...Globalcontext,
-                //     type: true,
-                //     [propsid]: {isclose: true}
-                // })
-                // console.log(Globalcontext)
-                setState({[propsid]:{isclose:true} });
+                console.log(Globalcontext)
+                Globalcontextdispatch({
+                    ...Globalcontext,
+                    type: true,
+                    [propsid]: {isclose: true}
+                })
+                console.log(Globalcontext)
+                // setState({[propsid]:{isclose:true} });
             };
 
             let islock=false;//當前是否鎖定
@@ -532,8 +532,8 @@ const Drag = (props) => {
             id: props.initialvar.id,
             dragwidth: props.initialvar.width,
             draghieght: props.initialvar.height,
-            // isclose:Globalcontext[props.initialvar.id].isclose
-            isclose:state[props.initialvar.id].isclose
+            isclose:Globalcontext[props.initialvar.id].isclose
+            // isclose:state[props.initialvar.id].isclose
         }}>{/*1.修改初始視窗大小*/}
 
             <div id={props.initialvar.id + "title"}>
@@ -561,10 +561,4 @@ const Drag = (props) => {
 }
 
 export default Drag;
-
-
-
-
-
-
-
+  
