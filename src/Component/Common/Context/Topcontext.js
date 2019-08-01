@@ -23,10 +23,14 @@ const reducer = (state, action) => {
 const Globalcontextreducer = (state, action) => {
     console.log("old", state);
     console.log("new", action);
+    // console.log("new", action.payload);
     console.log("----------------------")
     switch (action.type) {
-        case Topcontexttype:
-            return action;
+        case "dragclose":
+            return {
+                ...state,
+                ...action.payload
+            };
         default:
             return state;
     }

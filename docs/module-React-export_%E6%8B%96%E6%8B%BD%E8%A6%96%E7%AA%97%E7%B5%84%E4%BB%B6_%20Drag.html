@@ -38,12 +38,7 @@
     <div class="container-overview">
     
         
-            <div class="description">拖拽視窗組件
-<br>
-<br>
-Description:<br>
-創建一個可以拖動、八方位伸縮、最大最小化、還原、關閉與限制大小的視窗，
-透過將其他組件放入id="content"的div中，達到視窗化的效果</div>
+            <div class="description">拖拽視窗組件<br><br>Description:<br>創建一個可以拖動、八方位伸縮、最大最小化、還原、關閉與限制大小的視窗，透過將其他組件放入id="content"的div中，達到視窗化的效果調整參數指南:需要調整部分分為第一次渲染與改變瀏覽器窗口大小時，第一次渲染:1.修改初始視窗大小，搜尋"1.修改初始視窗大小"2.修改可拖拽視窗縮到最小大小，搜尋"2.修改可拖拽視窗縮到最小大小"3.修改視窗初始位置，搜尋"3.修改視窗初始位置"4.修改四周多少px不能是拖拽、縮放範圍，搜尋:"4.修改四周多少px不能是拖拽、縮放範圍"改變瀏覽器窗口大小時:3.修改視窗初始位置，搜尋"3.修改視窗初始位置"</div>
         
 
         
@@ -141,7 +136,7 @@ Description:<br>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="drag.js.html">Drag.js</a>, <a href="drag.js.html#line338">line 338</a>
+        <a href="Drag.js.html">Drag.js</a>, <a href="Drag.js.html#line170">line 170</a>
     </li></ul></dd>
     
 
@@ -197,6 +192,604 @@ Description:<br>
     
 
     
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~function_%E6%8B%96%E6%8B%BD%E8%A6%96%E7%AA%97%E5%87%BD%E6%95%B8:drag"><span class="type-signature">(inner) </span>function_拖拽視窗函數: drag<span class="signature">(oDrag, handle)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    拖拽視窗函數<br><br>Description:<br>拖拽視窗函數，待補
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>oDrag</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">type</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">拖拽視窗DOM</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>handle</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">type</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">拖拽視窗標題DOM</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Drag.js.html">Drag.js</a>, <a href="Drag.js.html#line248">line 248</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~function_%E6%94%B9%E8%AE%8A%E5%8F%AF%E6%8B%96%E6%8B%BD%E8%A6%96%E7%AA%97%E5%A4%A7%E5%B0%8F%E5%87%BD%E6%95%B8:resize"><span class="type-signature">(inner) </span>function_改變可拖拽視窗大小函數: resize<span class="signature">(oParent, content, handle, isLeft, isTop, lockX, lockY)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    改變可拖拽視窗大小函數<br><br>Description: <br>改變大小函數，詳細待補
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>oParent</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">DOM</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">包裹handle的父DOM，即可拖拽視窗</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>content</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">DOM</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">視窗內文的DOM</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>handle</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">DOM</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">要往某方向拉伸，被點擊的DOM</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isLeft</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">handle是否位於oParent左測</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isTop</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">handle是否位於oParent上測</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lockX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">是否垂直拉伸，即X軸不改變</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lockY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">是否水平拉伸，即Y軸不改變</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Drag.js.html">Drag.js</a>, <a href="Drag.js.html#line392">line 392</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~function_%E9%80%8F%E9%81%8EID%E5%8F%96%E5%BE%97DOM%E5%87%BD%E6%95%B8:byId"><span class="type-signature">(inner) </span>function_透過ID取得DOM函數: byId<span class="signature">(object_or_string)</span><span class="type-signature"> &rarr; {DOM}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    透過ID取得DOM函數<br><br>Description:<br>透過ID取得DOM
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>object_or_string</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object_or_string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">欲取得DOM的元素其ID</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Drag.js.html">Drag.js</a>, <a href="Drag.js.html#line217">line 217</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    object_or_string - 透過ID取得的DOM
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">DOM</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
 
     
 
@@ -211,13 +804,13 @@ Description:<br>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-React-export_%25E6%258B%2596%25E6%258B%25BD%25E8%25A6%2596%25E7%25AA%2597%25E7%25B5%2584%25E4%25BB%25B6_%2520Drag.html">React-export_拖拽視窗組件: Drag</a></li></ul><h3>Global</h3><ul><li><a href="global.html#function_%25E6%258B%2596%25E6%258B%25BD%25E8%25A6%2596%25E7%25AA%2597%25E5%2587%25BD%25E6%2595%25B8:drag">function_拖拽視窗函數: drag</a></li><li><a href="global.html#function_%25E6%2594%25B9%25E8%25AE%258A%25E5%258F%25AF%25E6%258B%2596%25E6%258B%25BD%25E8%25A6%2596%25E7%25AA%2597%25E5%25A4%25A7%25E5%25B0%258F%25E5%2587%25BD%25E6%2595%25B8:resize">function_改變可拖拽視窗大小函數: resize</a></li><li><a href="global.html#function_%25E9%2580%258F%25E9%2581%258EID%25E5%258F%2596%25E5%25BE%2597DOM%25E5%2587%25BD%25E6%2595%25B8:byId">function_透過ID取得DOM函數: byId</a></li><li><a href="global.html#Styled-component_%25E6%258B%2596%25E6%258B%25BD%25E8%25A6%2596%25E7%25AA%2597:Dragwindow">Styled-component_拖拽視窗:Dragwindow</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-React-export_%25E6%258B%2596%25E6%258B%25BD%25E8%25A6%2596%25E7%25AA%2597%25E7%25B5%2584%25E4%25BB%25B6_%2520Drag.html">React-export_拖拽視窗組件: Drag</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Styled-component_%25E6%258B%2596%25E6%258B%25BD%25E8%25A6%2596%25E7%25AA%2597%25E6%25A8%25A3%25E5%25BC%258F:Dragwindow">Styled-component_拖拽視窗樣式:Dragwindow</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sat Jul 27 2019 22:44:20 GMT+0800 (GMT+08:00)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Jul 29 2019 23:23:05 GMT+0800 (GMT+08:00)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -1,13 +1,41 @@
-import React, {useContext, useLayoutEffect, useState} from "react"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Drag.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Drag.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {useContext, useLayoutEffect, useState} from "react"
 import styled from 'styled-components';
 import {Topcontext} from "../Context/Topcontext";
 
 // language=LESS
 /**
  * 拖拽視窗樣式
- *<br>
- * <br>
- * Description:<br>
+ *&lt;br>
+ * &lt;br>
+ * Description:&lt;br>
  * 拖拽視窗樣式，待補
  *
  * @file: Drag.js
@@ -27,7 +55,7 @@ const Dragwindow = styled.div.attrs(({initial}) => ({style: {width: initial.drag
     box-shadow: 0 1px 3px 2px #666;
     display: ${(props) => ((props.initial.isclose) ? "none" : "block")};
     
-     ${(props) => ("& #" + props.initial.id + "title")} {    
+     ${(props) => ("&amp; #" + props.initial.id + "title")} {    
         position: relative;  //
         height: 27px;
         margin-bottom: 5px;
@@ -85,7 +113,7 @@ const Dragwindow = styled.div.attrs(({initial}) => ({style: {width: initial.drag
          }
       }  
        
-    ${(props) => ("& #" + props.initial.id + "content")} {
+    ${(props) => ("&amp; #" + props.initial.id + "content")} {
         overflow: auto;
         padding: 0 5px;
         //width:285px; //-15px
@@ -94,7 +122,7 @@ const Dragwindow = styled.div.attrs(({initial}) => ({style: {width: initial.drag
         height:${(props) => ((parseInt(props.initial.draghieght, 10) - 37 + "px")) } ; //-37px
      }
      
-    ${(props) => ("& #" + props.initial.id + "resizeBR")} {
+    ${(props) => ("&amp; #" + props.initial.id + "resizeBR")} {
         position: absolute;
         width: 14px;
         height: 14px;
@@ -169,9 +197,9 @@ const Dragwindow = styled.div.attrs(({initial}) => ({style: {width: initial.drag
 
 /**
  * 拖拽視窗組件
- *<br>
- * <br>
- * Description:<br>
+ *&lt;br>
+ * &lt;br>
+ * Description:&lt;br>
  * 創建一個可以拖動、八方位伸縮、最大最小化、還原、關閉與限制大小的視窗，
  * 透過將其他組件放入id="content"的div中，達到視窗化的效果
  * 調整參數指南:
@@ -216,9 +244,9 @@ const Drag = (props) => {
 
         /**
                  * 透過ID取得DOM函數
-                 *<br>
-                 * <br>
-                 * Description:<br>
+                 *&lt;br>
+                 * &lt;br>
+                 * Description:&lt;br>
                  * 透過ID取得DOM
                  *
                  * @file: Drag.js
@@ -247,9 +275,9 @@ const Drag = (props) => {
 
         /**
          * 拖拽視窗函數
-         *<br>
-         * <br>
-         * Description:<br>
+         *&lt;br>
+         * &lt;br>
+         * Description:&lt;br>
          * 拖拽視窗函數，待補
          *
          * @file: Drag.js
@@ -278,15 +306,15 @@ const Drag = (props) => {
                     let iT = event.clientY - disY; //當前onmousemove事件鼠標對於當前瀏覽器窗口的Y座 - onmousedown的disY座標
                     let maxL = document.documentElement.clientWidth - oDrag.offsetWidth; //設定DOM元素left的最大值，當前瀏覽器窗口的X軸寬度 - DOM元素寬度
                     let maxT = document.documentElement.clientHeight - oDrag.offsetHeight; //設定DOM元素top的最大值，當前瀏覽器窗口的Y軸高度 - DOM元素高度
-                    if (maxL == 0 && maxT == 0) {//如果現在是最大化之後按了還原的狀況
+                    if (maxL == 0 &amp;&amp; maxT == 0) {//如果現在是最大化之後按了還原的狀況
                     } else {
-                        iL <= 0 + fixleft && (iL = 0 + fixleft); //設定當DOM元素left的值比0小，就設成0，就是不讓DOM元素被畫面切到    (fixleft控制上方多少px不能是拖拽範圍)
-                        iT <= 0 + fixtop && (iT = 0 + fixtop); //設定當DOM元素top的值比0小，就設成0，就是不讓DOM元素被畫面切到       (fixtop控制上方多少px不能是拖拽範圍)
+                        iL &lt;= 0 + fixleft &amp;&amp; (iL = 0 + fixleft); //設定當DOM元素left的值比0小，就設成0，就是不讓DOM元素被畫面切到    (fixleft控制上方多少px不能是拖拽範圍)
+                        iT &lt;= 0 + fixtop &amp;&amp; (iT = 0 + fixtop); //設定當DOM元素top的值比0小，就設成0，就是不讓DOM元素被畫面切到       (fixtop控制上方多少px不能是拖拽範圍)
                     }
-                    if (maxL == 0 && maxT == 0) {//如果現在是最大化之後按了還原的狀況
+                    if (maxL == 0 &amp;&amp; maxT == 0) {//如果現在是最大化之後按了還原的狀況
                     } else {//如果不是最大化的情況
-                        iL >= maxL - fixright && (iL = maxL - fixright);//設定當DOM元素left的值比maxL大，就設成maxL，就是不讓DOM元素被畫面切到      (fixright控制上方多少px不能是拖拽範圍)
-                        iT >= maxT - fixbottom && (iT = maxT - fixbottom);//設定當DOM元素left的值比maxT大，就設成maxT，就是不讓DOM元素被畫面切到    (fixbottom控制上方多少px不能是拖拽範圍)
+                        iL >= maxL - fixright &amp;&amp; (iL = maxL - fixright);//設定當DOM元素left的值比maxL大，就設成maxL，就是不讓DOM元素被畫面切到      (fixright控制上方多少px不能是拖拽範圍)
+                        iT >= maxT - fixbottom &amp;&amp; (iT = maxT - fixbottom);//設定當DOM元素left的值比maxT大，就設成maxT，就是不讓DOM元素被畫面切到    (fixbottom控制上方多少px不能是拖拽範圍)
                     }
 
                     oDrag.style.left = iL + "px"; //設定DOM元素left位置
@@ -303,9 +331,9 @@ const Drag = (props) => {
                 document.onmouseup = function () {
                     document.onmousemove = null; //清除事件
                     document.onmouseup = null; //清除事件
-                    this.releaseCapture && this.releaseCapture()// 設定事件在當前DOM釋放
+                    this.releaseCapture &amp;&amp; this.releaseCapture()// 設定事件在當前DOM釋放
                 };
-                this.setCapture && this.setCapture(); // 設定事件鎖定在當前DOM
+                this.setCapture &amp;&amp; this.setCapture(); // 設定事件鎖定在當前DOM
                 return false  //去除預設事件
             };
 
@@ -354,6 +382,7 @@ const Drag = (props) => {
             //關閉按鈕
             oClose.onclick = function () {
                 Globalcontextdispatch({
+                    ...Globalcontext,
                     type: "dragclose",
                     payload: {
                         [propsid]: {isclose: true}
@@ -390,9 +419,9 @@ const Drag = (props) => {
 
         /**
          * 改變可拖拽視窗大小函數
-         * <br>
-         * <br>
-         * Description: <br>
+         * &lt;br>
+         * &lt;br>
+         * Description: &lt;br>
          * 改變大小函數，詳細待補
          *
          * @file: Drag.js
@@ -430,29 +459,29 @@ const Drag = (props) => {
                     // console.log(isTop)
                     // console.log(iH)
 
-                    // isLeft && (oParent.style.left = iParentLeft + iL + "px");//即設定可拖拽視窗left為 ( onmousedown時瀏覽器窗口最左邊到可拖拽視窗左邊Border外的長度 - 相對於disX移動多少 )，為了給可拖拽視窗定左上角座標用
+                    // isLeft &amp;&amp; (oParent.style.left = iParentLeft + iL + "px");//即設定可拖拽視窗left為 ( onmousedown時瀏覽器窗口最左邊到可拖拽視窗左邊Border外的長度 - 相對於disX移動多少 )，為了給可拖拽視窗定左上角座標用
                     if (isLeft) {
                         oParent.style.left = iParentLeft + iL + "px";//即設定可拖拽視窗left為 ( onmousedown時瀏覽器窗口最左邊到可拖拽視窗左邊Border外的長度 - 相對於disX移動多少 )，為了給可拖拽視窗定左上角座標用
-                        (parseInt(oParent.style.left, 10) <= fixleft) && (oParent.style.left = fixleft + "px");//另外設定最小縮放到那個X座標的右方
+                        (parseInt(oParent.style.left, 10) &lt;= fixleft) &amp;&amp; (oParent.style.left = fixleft + "px");//另外設定最小縮放到那個X座標的右方
                     }
                     if (isTop) {
                         oParent.style.top = iParentTop + iT + "px";//即設定可拖拽視窗top為 ( onmousedown時瀏覽器窗口最上邊到可拖拽視窗上邊Border外的長度 - 相對於disY移動多少 )，為了給可拖拽視窗定左上角座標用
-                        (parseInt(oParent.style.top, 10) <= fixtop) && (oParent.style.top = fixtop + "px");//另外設定最小縮放到那個Y座標的下方
+                        (parseInt(oParent.style.top, 10) &lt;= fixtop) &amp;&amp; (oParent.style.top = fixtop + "px");//另外設定最小縮放到那個Y座標的下方
                     }
-                    iW < dragMinWidth && (iW = dragMinWidth);//設定若目前onmousemove讓可拖拽視窗寬度縮小到比可拖拽視窗縮到最小寬度還小，則不讓他繼續縮小
-                    iW > maxW - fixright && (iW = maxW - fixright);//設定若目前onmousemove讓可拖拽視窗寬度放大到比可拖拽視窗放到最大寬度還大，則不讓他繼續放大
+                    iW &lt; dragMinWidth &amp;&amp; (iW = dragMinWidth);//設定若目前onmousemove讓可拖拽視窗寬度縮小到比可拖拽視窗縮到最小寬度還小，則不讓他繼續縮小
+                    iW > maxW - fixright &amp;&amp; (iW = maxW - fixright);//設定若目前onmousemove讓可拖拽視窗寬度放大到比可拖拽視窗放到最大寬度還大，則不讓他繼續放大
                     lockX || (oParent.style.width = iW + "px");//如果是垂直拉伸，則返回 lockX (true，即不執行 oParent.style.width = iW + "px")，就是鎖定X軸座標；不然寬度就隨onmousemove變化
                     lockX || (content.style.width = parseInt(oParent.style.width, 10) - 15 + "px");//如果是垂直拉伸，則返回 lockX (true，即不執行 parseInt(oParent.style.width, 10) - 15 + "px")，就是鎖定X軸座標；不然content寬度就隨onmousemove變化
-                    iH < dragMinHeight && (iH = dragMinHeight);//設定若目前onmousemove讓可拖拽視窗高度縮小到比可拖拽視窗縮到最小高度還小，則不讓他繼續縮小
-                    iH > maxH - fixbottom && (iH = maxH - fixbottom);//設定若目前onmousemove讓可拖拽視窗高度放大到比可拖拽視窗放到最大高度還大，則不讓他繼續放大
+                    iH &lt; dragMinHeight &amp;&amp; (iH = dragMinHeight);//設定若目前onmousemove讓可拖拽視窗高度縮小到比可拖拽視窗縮到最小高度還小，則不讓他繼續縮小
+                    iH > maxH - fixbottom &amp;&amp; (iH = maxH - fixbottom);//設定若目前onmousemove讓可拖拽視窗高度放大到比可拖拽視窗放到最大高度還大，則不讓他繼續放大
                     lockY || (oParent.style.height = iH + "px");//如果是水平拉伸，則返回 lockY (true，即不執行 oParent.style.height = iH + "px")，就是鎖定Y軸座標；不然高度就隨onmousemove變化
                     lockY || (content.style.height = parseInt(oParent.style.height, 10) - 37 + "px");//如果是水平拉伸，則返回 lockY (true，即不執行  parseInt(oParent.style.height, 10) - 37 + "px"))，就是鎖定Y軸座標；不然content高度就隨onmousemove變化
                     widthbeforemax = parseInt(oParent.style.width); //放大以前視窗寬度，預設值與 initial.dragwidth值一樣
                     heightbeforemax = parseInt(oParent.style.height); //放大以前視窗高度，預設值與 initial.draghieght值一樣
                     leftbeforemax = parseInt(oParent.style.left);//放大以前視窗left
                     topbeforemax = parseInt(oParent.style.top);//放大以前視窗top
-                    if ((isLeft && iW == dragMinWidth) || (isTop && iH == dragMinHeight)) document.onmousemove = null;//如果高度或寬度任一個縮到比最小高度或寬度還小，就清除onmousemove事件
-                    if ((isLeft && (parseInt(oParent.style.left, 10) == fixleft)) || (isTop && (parseInt(oParent.style.top, 10) == fixtop))) document.onmousemove = null;//如果高度或寬度任一個放到比最大高度或寬度還大，就清除onmousemove事件
+                    if ((isLeft &amp;&amp; iW == dragMinWidth) || (isTop &amp;&amp; iH == dragMinHeight)) document.onmousemove = null;//如果高度或寬度任一個縮到比最小高度或寬度還小，就清除onmousemove事件
+                    if ((isLeft &amp;&amp; (parseInt(oParent.style.left, 10) == fixleft)) || (isTop &amp;&amp; (parseInt(oParent.style.top, 10) == fixtop))) document.onmousemove = null;//如果高度或寬度任一個放到比最大高度或寬度還大，就清除onmousemove事件
                     return false;
                 };
                 document.onmouseup = function () {//綁定onmouseup事件
@@ -491,7 +520,7 @@ const Drag = (props) => {
 
         window.onresize = function () {
             // console.log(document.getElementsByName("drag")[0].lastChild)
-            for (let i = 0; i < document.getElementsByName("drag").length; i++) {
+            for (let i = 0; i &lt; document.getElementsByName("drag").length; i++) {
                 let oDrag = document.getElementsByName("drag")[i];
                 let oContent = document.getElementsByName("drag")[i].lastChild;
                 let oTitle = byId(props.initialvar.id + "title");
@@ -527,7 +556,7 @@ const Drag = (props) => {
 
     return (
 
-        <Dragwindow name="drag" id={props.initialvar.id + "drag"} initial={{
+        &lt;Dragwindow name="drag" id={props.initialvar.id + "drag"} initial={{
             id: props.initialvar.id,
             dragwidth: props.initialvar.width,
             draghieght: props.initialvar.height,
@@ -535,29 +564,52 @@ const Drag = (props) => {
             // isclose:state[props.initialvar.id].isclose
         }}>{/*1.修改初始視窗大小*/}
             {console.log(Globalcontext[props.initialvar.id])}
-            <div id={props.initialvar.id + "title"}>
-                <h2>這是一個可拖動的窗口</h2>
-                <div>
-                    {/*<a id={props.initialvar.id + "min"} href="javascript:;" title="最小化"></a>*/}
-                    <a id={props.initialvar.id + "lock"} href="javascript:;" title="鎖定"></a>
-                    <a id={props.initialvar.id + "max"} href="javascript:;" title="最大化"></a>
-                    <a id={props.initialvar.id + "revert"} href="javascript:;" title="還原"></a>
-                    <a id={props.initialvar.id + "close"} href="javascript:;" title="關閉"></a>
-                </div>
-            </div>
-            <div id={props.initialvar.id + "resizeL"}></div>
-            <div id={props.initialvar.id + "resizeT"}></div>
-            <div id={props.initialvar.id + "resizeR"}></div>
-            <div id={props.initialvar.id + "resizeB"}></div>
-            <div id={props.initialvar.id + "resizeLT"}></div>
-            <div id={props.initialvar.id + "resizeTR"}></div>
-            <div id={props.initialvar.id + "resizeBR"}></div>
-            <div id={props.initialvar.id + "resizeLB"}></div>
-            <div id={props.initialvar.id + "content"}>
+            &lt;div id={props.initialvar.id + "title"}>
+                &lt;h2>這是一個可拖動的窗口&lt;/h2>
+                &lt;div>
+                    {/*&lt;a id={props.initialvar.id + "min"} href="javascript:;" title="最小化">&lt;/a>*/}
+                    &lt;a id={props.initialvar.id + "lock"} href="javascript:;" title="鎖定">&lt;/a>
+                    &lt;a id={props.initialvar.id + "max"} href="javascript:;" title="最大化">&lt;/a>
+                    &lt;a id={props.initialvar.id + "revert"} href="javascript:;" title="還原">&lt;/a>
+                    &lt;a id={props.initialvar.id + "close"} href="javascript:;" title="關閉">&lt;/a>
+                &lt;/div>
+            &lt;/div>
+            &lt;div id={props.initialvar.id + "resizeL"}>&lt;/div>
+            &lt;div id={props.initialvar.id + "resizeT"}>&lt;/div>
+            &lt;div id={props.initialvar.id + "resizeR"}>&lt;/div>
+            &lt;div id={props.initialvar.id + "resizeB"}>&lt;/div>
+            &lt;div id={props.initialvar.id + "resizeLT"}>&lt;/div>
+            &lt;div id={props.initialvar.id + "resizeTR"}>&lt;/div>
+            &lt;div id={props.initialvar.id + "resizeBR"}>&lt;/div>
+            &lt;div id={props.initialvar.id + "resizeLB"}>&lt;/div>
+            &lt;div id={props.initialvar.id + "content"}>
                 {props.children}
-            </div>
-        </Dragwindow>)
+            &lt;/div>
+        &lt;/Dragwindow>)
 }
 
 export default Drag;
 
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-React-export_%25E6%258B%2596%25E6%258B%25BD%25E8%25A6%2596%25E7%25AA%2597%25E7%25B5%2584%25E4%25BB%25B6_%2520Drag.html">React-export_拖拽視窗組件: Drag</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Styled-component_%25E6%258B%2596%25E6%258B%25BD%25E8%25A6%2596%25E7%25AA%2597%25E6%25A8%25A3%25E5%25BC%258F:Dragwindow">Styled-component_拖拽視窗樣式:Dragwindow</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Jul 29 2019 23:23:05 GMT+0800 (GMT+08:00)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
