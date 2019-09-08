@@ -1,59 +1,20 @@
 import React, {useContext, useEffect} from "react";
 import {Topcontext} from "../Context/Topcontext";
 import {FetchID} from "../../../DBCommunicator/FetchID"
-import {Menu, Dropdown, Button, Icon, message} from 'antd';
 import styled from "styled-components"
-import 'antd/dist/antd.css';
+import {ThemeProvider} from 'styled-components';
 
-function handleMenuClick(e) {
-    message.info('Click on menu item.');
-    console.log('click', e);
-}
-
-const Mymenu = styled(Menu)`
-  background-color:red;
-  color: #000000;
-
-`
-
-
-const Mbutton=styled(Button).attrs({ className: `ant-btn  `
-    })`
-background: #440044;
-width: 500px;
-.ant-btn:hover, .ant-btn:focus{
-background-color: #f5871f;
- color: #fff;
-}
-
-ant-btn::selection {
-    color: #fff;
-    background: #f5871f;
-`
-
-const Dr=styled(Dropdown)`
+// import {ThemeProvider} from '@material-ui/styles';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import { createMuiTheme } from "@material-ui/core";
 
 
 
-`
 
-
-const menu = (
-    <Mymenu onClick={handleMenuClick}>
-        <Mymenu.Item key="1">
-            <Icon type="user"/>
-            1st menu item
-        </Mymenu.Item>
-        <Mymenu.Item key="2">
-            <Icon type="user"/>
-            2nd menu item
-        </Mymenu.Item>
-        <Menu.Item key="3">
-            <Icon type="user"/>
-            3rd item
-        </Menu.Item>
-    </Mymenu>
-);
+//spacing為[0,10]之區間的數，控制元素間間格距離(padding)每一單位為8px
+//斷點有五種:xs，sm，md，lg 和 xl。Grid的基底為12，例sx={6}就是占一半空間
 
 
 const Navigation = props => {
@@ -64,37 +25,84 @@ const Navigation = props => {
     // FetchID(3);
     // FetchID(2);
     // FetchID(99);
+    // #343a40
 
+    const Buttonself = styled(Button)`
+      && {
+        //color: darkgreen;
+        }
+        &.btn-primary:hover , .btn-primary.hover {
+         //color: red;
+        }
+`;
+
+    const theme = {
+        color: "red"
+    }
+
+    const GGrid = styled( ({theme,...other})=>(<Grid {...other}/>)   )`
+
+      &{
+       //flexGrow: 1;
+      color: ${props => console.log(props)};
+      //color: darkgreen;
+      #a1{
+      color: darkgreen;
+      }
+      
+      }
+      
+      .MuiGrid-item{
+       color: red;
+      }
+`
+console.log(props)
     return (
         <React.Fragment>
-            {/*<div id="components-dropdown-demo-dropdown-button">*/}
-            <Dropdown overlay={menu}>
-                <Mbutton>
-                    Button <Icon type="down"/>
-                </Mbutton>
-            </Dropdown>
-            {/*</div>*/}
-            <button onClick={() => {
-                Globalcontextdispatch({
-                    type: "dragclose",
-                    payload: {
-                        test: {isclose: false}
-                    }
-                });
-            }}>test
-            </button>
-            <button onClick={() => {
-                Globalcontextdispatch({
-                    type: "dragclose",
-                    payload: {
-                        test13: {isclose: false}
-                    }
-                });
-            }}>test13
-            </button>
+                <GGrid  theme={theme} p={props} container spacing={0}>
+                    <GGrid theme={theme} item  xs={12}>
+                        1
+                    </GGrid>
+                    <GGrid theme={theme}  item xs={4}>
+                        2
+                    </GGrid>
+                    <GGrid theme={theme}  item xs={4}>
+                        3
+                    </GGrid>
+                    <GGrid id="a1" theme={theme}item xs={4}>
+                        3
+                    </GGrid>
+                </GGrid>
 
-        </React.Fragment>
-    );
-};
 
-export default Navigation;
+
+            <Buttonself>yes</Buttonself>
+
+            <button
+                onClick={() => {
+                    Globalcontextdispatch({
+                        type: "dragclose",
+                        payload: {
+                            test: {isclose: false}
+                        }
+                    });
+                }
+                }>
+                test
+                </button>
+                <button onClick={() => {
+                    Globalcontextdispatch({
+                        type: "dragclose",
+                        payload: {
+                            test13: {isclose: false}
+                        }
+                    });
+                }}>test13
+                </button>
+
+                </React.Fragment>
+                )
+                ;
+                };
+
+                export default Navigation;

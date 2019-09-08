@@ -10,10 +10,22 @@ Component(所有元件)
 > > > Topcontext.js
 > >
 > > Functional(功能性元件)
-> > > drag
+> > > Buttons.js
+> > > Drag.js
+> > > Navigatior.js
+> > > Selects.js
 >
 > Special (特色組件)
 
+
+   
+##Buttons.js
+
+##Drag.js
+
+##Navigatior.js
+
+##Selects.js
 
 ##Topcontainer.js、Topcontext.js
 - Topcontainer作為全域Context導出，解決組件間通訊共享數據問題，設計上內有多個子元件項Context，各個元件在依需求調用。
@@ -21,6 +33,7 @@ Component(所有元件)
     - Globalcontext、Globalcontextdispatch，用作全域變數如:<br>
     { userinfo:{登入資訊} , componentinfo:{組件資訊 } }
    - 
+    
    
    
 
