@@ -536,7 +536,7 @@ const Drag = (props) => {
         }}>{/*1.修改初始視窗大小*/}
             {console.log(Globalcontext[props.initialvar.id])}
             <div id={props.initialvar.id + "title"}>
-                <h2>這是一個可拖動的窗口</h2>
+                <h2>{props.initialvar.titletext}</h2>
                 <div>
                     {/*<a id={props.initialvar.id + "min"} href="javascript:;" title="最小化"></a>*/}
                     <a id={props.initialvar.id + "lock"} href="javascript:;" title="鎖定"></a>
