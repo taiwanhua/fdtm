@@ -7,6 +7,7 @@ import {SimpleSelect} from "../Functional/Selects"
 
 import DeleteIcon from '@material-ui/icons/Delete';
 import {makeStyles} from "@material-ui/core/styles/index";
+import {Droptable} from "../Functional/Droptable";
 
 function Topcontainer(props) {
     const useStyles = makeStyles((theme) => ({
@@ -42,6 +43,7 @@ console.log(state)
             {/*<TextButton  props={{id:"as1",textright:"CB"}} />*/}
             {/*<SimpleSelect props={{a:11,b:22,c:33}} showvalue={true} labelname="one" keep={["a"]} kill={["b"]} />*/}
             {/*<SimpleSelect props={{a:11,b:22,c:33}}  />*/}
+            <Droptable/>
 
 
 
