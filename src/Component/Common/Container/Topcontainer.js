@@ -43,7 +43,7 @@ console.log(state)
             {/*<TextButton  props={{id:"as1",textright:"CB"}} />*/}
             {/*<SimpleSelect props={{a:11,b:22,c:33}} showvalue={true} labelname="one" keep={["a"]} kill={["b"]} />*/}
             {/*<SimpleSelect props={{a:11,b:22,c:33}}  />*/}
-            <Droptable/>
+            <Droptable drop={{RorC:"R"}} />
 
 
 
