@@ -97,7 +97,11 @@ console.log(state)
         <Topcontextfunction>
             {/*<Navigation/>*/}
             <Drag  initialvar={{id:"test",width:"300px",height:"300px",titletext:"視窗1"}}><div>YES</div><div>YES</div><div>YES</div></Drag>
-            <Drag  initialvar={{id:"test13",width:"500px",height:"400px",titletext:"視窗2"}}><div>NONONO</div></Drag>
+            <Drag  initialvar={{id:"test13",width:"500px",height:"400px",titletext:"視窗2"}}><div>NONONO</div>
+                <LineButton onClick= { (e)=>setState({...state,background:"yellow"}) } i="123"  href="https://tw.yahoo.com/" props={state}  >
+                <DeleteIcon className={classes.leftIcon} />
+                </LineButton>
+            </Drag>
             {/*<Test/>*/}
             {/*<Chartcomponent/>*/}
             {/*<Idfetchtest/>*/}

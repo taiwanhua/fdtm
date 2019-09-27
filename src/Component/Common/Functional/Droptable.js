@@ -4,8 +4,8 @@ import styled from 'styled-components';
 export const Droptable = (props) => {
     const Dragul = styled.ul`
       color: blueviolet;
-      
-      // margin-Top: ${(props) => ("themetop" === props.trprops.position) ? "20px" : "0px" }
+      float: ${(props) => (props.trprops.float) ? "left" : "" }
+       // margin-Top: ${(props) => ("themetop" === props.trprops.position) ? "20px" : "0px" }
       
     `;
 
@@ -74,11 +74,9 @@ export const Droptable = (props) => {
     //     ]
 
 
-
     //console.log(Jsondata);
     const [Data, setData] = useState(props.data);
     const [DragEnterstate, setDragEnterstate] = useState("themecenter");
-
 
     const ClearmarginTop = () => {
         //console.log(document.getElementById("testd").children.length)
@@ -101,7 +99,7 @@ export const Droptable = (props) => {
         e.preventDefault();
         ClearmarginTop();
         e.target.parentElement.style.marginTop = "20px";
-        Entertarget=e.target.parentElement;
+        Entertarget = e.target.parentElement;
     }
     //當拖曳元件離開此元件函數
     const R_DragLeave = (e) => {
@@ -125,7 +123,7 @@ export const Droptable = (props) => {
         let newJsondata = Array.from(Data)
         //console.log(newJsondata)
         newJsondata.splice(parseInt(currenttarget.getAttribute("name")), 1);
-        newJsondata.splice(parseInt(e.target.parentElement.getAttribute("name")), 0,Data[parseInt(currenttarget.getAttribute("name"))] );
+        newJsondata.splice(parseInt(e.target.parentElement.getAttribute("name")), 0, Data[parseInt(currenttarget.getAttribute("name"))]);
         //currenttarget.style.display = "block";
         setData(newJsondata);
         console.log(newJsondata)
@@ -137,18 +135,18 @@ export const Droptable = (props) => {
         Entertarget.style.marginTop = "0px";
         let newJsondata = Array.from(Data)
         newJsondata.splice(parseInt(currenttarget.getAttribute("name")), 1);
-        newJsondata.splice(parseInt(Entertarget.getAttribute("name")), 0,Data[parseInt(currenttarget.getAttribute("name"))] );
+        newJsondata.splice(parseInt(Entertarget.getAttribute("name")), 0, Data[parseInt(currenttarget.getAttribute("name"))]);
         //currenttarget.style.display = "block";
         setData(newJsondata);
     }
 
-    const ren = () => {
+    const renR = () => {
         return (Data.map((item, index) =>
-                <Dragul key={index} name={index} trprops={{position: DragEnterstate}} draggable={true}
+                <Dragul key={index} name={index} trprops={{position: DragEnterstate, float: false}} draggable={true}
                         onDragStart={R_DragStart}
                         onDragEnter={R_DragEnter}
                         onDragLeave={R_DragLeave}
-                        // onDragOver={R_DragOver}
+                    // onDragOver={R_DragOver}
                         onDrop={R_Drop}>
                     <li>
                         Drag{index}
@@ -163,13 +161,124 @@ export const Droptable = (props) => {
             )
         )
     }
+    //-------------------------------------------------------//
+
+    //
+    const ClearmarginLeft = () => {
+        //console.log(document.getElementById("testd").children.length)
+        for (let i = 0; i < document.getElementById("testd").children.length; i++) {
+            document.getElementById("testd").children[i].style.marginLeft = "0px";
+        }
+    }
+    const C_DragStart = (e) => {
+        currenttarget = e.currentTarget;
+        console.log(e.currentTarget)
+    }
+    const C_DragEnter = (e) => {
+        console.log(e.target.parentElement);
+        e.preventDefault();
+        ClearmarginLeft();
+        e.target.parentElement.style.marginLeft = "20px";
+        Entertarget = e.target.parentElement;
+    }
+    const C_DragLeave = () => {
+
+    }
+    const C_Drop = (e) => {
+        //e.preventDefault();
+        console.log(currenttarget.getAttribute("name"))
+        //刷新state
+        let newTransforData = Array.from(TransforData)
+        //console.log(newJsondata)
+        newTransforData.splice(parseInt(currenttarget.getAttribute("name")), 1);
+        newTransforData.splice(parseInt(e.target.parentElement.getAttribute("name")), 0, TransforData[parseInt(currenttarget.getAttribute("name"))]);
+        //currenttarget.style.display = "block";
+        setData(newTransforData);
+        console.log(newTransforData)
+    }
+    const C_DragOver = (e) => {
+        e.preventDefault();
+        currenttarget.style.display = "none";
+    }
+    const C_DropError = (e) => {
+        e.preventDefault();
+        currenttarget.style.display = "block";
+        Entertarget.style.marginTop = "0px";
+        let newTransforData = Array.from(TransforData)
+        //console.log(newJsondata)
+        newTransforData.splice(parseInt(currenttarget.getAttribute("name")), 1);
+        newTransforData.splice(parseInt(e.target.parentElement.getAttribute("name")), 0, TransforData[parseInt(currenttarget.getAttribute("name"))]);
+        //currenttarget.style.display = "block";
+        setData(newTransforData);
+    }
+    let TransforData = [];
+    const renC = () => {
+
+        if ("0" !== Object.keys(Data[0])[0]) {
+            Object.keys(Data[0]).map((colname, index) => {
+                console.log(colname);
+                window[colname + "1"] = [];
+            })
+            Object.keys(Data[0]).map((colname, index) => {
+                Data.map((item, index) => {
+                    window[colname + "1"].push(item[colname])
+                })
+            })
+
+            Object.keys(Data[0]).map((colname, index) => {
+                TransforData.push(window[colname + "1"]);
+            })
+            console.log(TransforData);
+            //setCData(TransforData);
+        }else{
+            console.log(Data)
+            TransforData=Array.from(Data);
+        }
+
+        return (
+
+
+
+            TransforData.map((item, index) =>
+                <Dragul key={index} name={index} trprops={{position: DragEnterstate, float: true}} draggable={true}
+                        onDragStart={C_DragStart}
+                        onDragEnter={C_DragEnter}
+                        onDragLeave={C_DragLeave}
+                    // onDragOver={C_DragOver}
+                        onDrop={C_Drop}>
+
+                    {item.map((innerItem, index) =>
+                        <li key={"li" + index}> {innerItem}</li>
+                    )}
+                </Dragul>
+            )
+
+
+            // <Dragul key={index} name={index} trprops={{position: DragEnterstate}} draggable={true}
+            //         onDragStart={R_DragStart}
+            //         onDragEnter={R_DragEnter}
+            //         onDragLeave={R_DragLeave}
+            //     // onDragOver={R_DragOver}
+            //         onDrop={R_Drop}>
+            //     <li>
+            //         Drag{index}
+            //     </li>
+            //     <li>
+            //         {item.Date}
+            //     </li>
+            //     <li>
+            //         {item.DateTime}
+            //     </li>
+            // </Dragul>
+
+        )
+    }
+
     return (
 
         <div>
             {("R" === props.drop.RorC) &&
-            <div> {Data[0].Date}
-
-
+            <div>
                 <div id="testd" onDragOver={R_DragOver} onDrop={R_DropError}>
                     {/*{Data.map((item, index) =>*/}
                     {/*<Dragul key={index} name={index} trprops={{position: DragEnterstate}} draggable={true}*/}
@@ -189,14 +298,15 @@ export const Droptable = (props) => {
                     {/*</li>*/}
                     {/*</Dragul>*/}
                     {/*)}*/}
-                    {ren()}
+                    {renR()}
                 </div>
-
-
             </div>
             }
             {("C" === props.drop.RorC) &&
-            <div>aa</div>
+            <div id="testd" onDragOver={C_DragOver} onDrop={C_DropError}>
+                {renC()}
+
+            </div>
             }
 
         </div>
