@@ -4,9 +4,17 @@ import styled from 'styled-components';
 export const Droptable = (props) => {
     const Dragul = styled.ul`
       color: blueviolet;
-      float: ${(props) => (props.trprops.float) ? "left" : "" }
-       // margin-Top: ${(props) => ("themetop" === props.trprops.position) ? "20px" : "0px" }
+      float: ${(props) => ((props.trprops.float) ? "left" : "none")}
       
+      
+      
+       li {
+        margin: 0px 5px;
+        display: ${(props) => ((props.trprops.float) ? "block" : "inline") }
+      }
+      
+      
+      }
     `;
 
     // let Jsondata =
@@ -149,13 +157,28 @@ export const Droptable = (props) => {
                     // onDragOver={R_DragOver}
                         onDrop={R_Drop}>
                     <li>
-                        Drag{index}
+                        {item.DateTime}
                     </li>
                     <li>
                         {item.Date}
                     </li>
                     <li>
-                        {item.DateTime}
+                        {item.Time}
+                    </li>
+                    <li>
+                        {item.O}
+                    </li>
+                    <li>
+                        {item.H}
+                    </li>
+                    <li>
+                        {item.L}
+                    </li>
+                    <li>
+                        {item.C}
+                    </li>
+                    <li>
+                        {item.Vol}
                     </li>
                 </Dragul>
             )
@@ -167,7 +190,7 @@ export const Droptable = (props) => {
     const ClearmarginLeft = () => {
         //console.log(document.getElementById("testd").children.length)
         for (let i = 0; i < document.getElementById("testd").children.length; i++) {
-            document.getElementById("testd").children[i].style.marginLeft = "0px";
+            document.getElementById("testd").children[i].style.borderLeft = "";
         }
     }
     const C_DragStart = (e) => {
@@ -178,7 +201,7 @@ export const Droptable = (props) => {
         console.log(e.target.parentElement);
         e.preventDefault();
         ClearmarginLeft();
-        e.target.parentElement.style.marginLeft = "20px";
+        e.target.parentElement.style.borderLeft = "2px solid red";
         Entertarget = e.target.parentElement;
     }
     const C_DragLeave = () => {
@@ -203,7 +226,7 @@ export const Droptable = (props) => {
     const C_DropError = (e) => {
         e.preventDefault();
         currenttarget.style.display = "block";
-        Entertarget.style.marginTop = "0px";
+        Entertarget.style.borderLeft = "";
         let newTransforData = Array.from(TransforData)
         //console.log(newJsondata)
         newTransforData.splice(parseInt(currenttarget.getAttribute("name")), 1);
