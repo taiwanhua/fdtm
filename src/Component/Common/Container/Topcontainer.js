@@ -112,9 +112,9 @@ console.log(state)
             {/*<LineButton  props={{id:"dfsadf",border:"black 1px solid",textleft:"fff"}}/>*/}
             {/*<ContainedButton  props={{id:"as",textright:"CB",background:"red"}}></ContainedButton>*/}
             {/*<TextButton  props={{id:"as1",textright:"CB"}} />*/}
-            <SimpleSelect props={{a:11,b:22,c:33}} showvalue={true} labelname="one" keep={["a"]} kill={["b"]} />
-            <SimpleSelect props={{a:11,b:22,c:33}}  />
-            <Droptable drop={{RorC:"C"}} data={Jsondata}/>
+            <SimpleSelect props={{a:11,b:22,c:33}} showvalue={true} selectSetting={{muiSelectWidth:"300px",labelname:"one1"}}  keep={["a"]} kill={["b"]} />
+            <SimpleSelect props={{a:11,b:22,c:33}}  selectSetting={{muiSelectWidth:"300px"}}/>
+            <Droptable drop={{RorC:"C"}} data={Jsondata} />
 
 
 

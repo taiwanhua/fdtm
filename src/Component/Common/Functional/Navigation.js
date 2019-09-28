@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 import {createMuiTheme} from "@material-ui/core";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import {SimpleSelect} from "./Selects";
 
 
 //spacing為[0,10]之區間的數，控制元素間間格距離(padding)每一單位為8px
@@ -85,7 +86,8 @@ const Navigation = props => {
                 <div id="FDTMLogo">
 
                 </div>
-                <div>113</div>
+                <SimpleSelect props={{a:11,b:22,c:33}} showvalue={true} selectSetting={{muiSelectWidth:"300px",labelname:"one1"}}  keep={["a"]} kill={["b"]} />
+
 
 
 
