@@ -8,9 +8,9 @@ import {ThemeProvider} from 'styled-components';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import { createMuiTheme } from "@material-ui/core";
-
-
+import {createMuiTheme} from "@material-ui/core";
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 
 
 //spacing為[0,10]之區間的數，控制元素間間格距離(padding)每一單位為8px
@@ -27,6 +27,27 @@ const Navigation = props => {
     // FetchID(99);
     // #343a40
 
+    const Navbar = styled(AppBar)`
+      /*css*/
+      && {
+      background-color: #1a3e59;
+      position: fixed;
+      top: 0px;
+      z-index: 0;
+      height: 50px;
+      flex-direction: row;
+      color: ${(props) => ((props.p.color) ? "left" : "none")}
+        
+        & #FDTMLogo {
+            background: url("./img/FDTMLogo.png") no-repeat;
+            background-size: contain;
+            height: 50px;
+            width: 180px;
+        }
+      }
+    `;
+
+
     const Buttonself = styled(Button)`
       && {
         //color: darkgreen;
@@ -40,7 +61,7 @@ const Navigation = props => {
         color: "red"
     }
 
-    const GGrid = styled( ({theme,...other})=>(<Grid {...other}/>)   )`
+    const GGrid = styled(({theme, ...other}) => (<Grid {...other}/>))`
 
       &{
        //flexGrow: 1;
@@ -56,24 +77,36 @@ const Navigation = props => {
        color: red;
       }
 `
-console.log(props)
+    console.log(props)
     return (
         <React.Fragment>
-                <GGrid  theme={theme} p={props} container spacing={0}>
-                    <GGrid theme={theme} item  xs={12}>
-                        1
-                    </GGrid>
-                    <GGrid theme={theme}  item xs={4}>
-                        2
-                    </GGrid>
-                    <GGrid theme={theme}  item xs={4}>
-                        3
-                    </GGrid>
-                    <GGrid id="a1" theme={theme}item xs={4}>
-                        3
-                    </GGrid>
-                </GGrid>
+            <Navbar position="static" p={{color: "trueiko"}}>
 
+                <div id="FDTMLogo">
+
+                </div>
+                <div>113</div>
+
+
+
+
+
+
+            </Navbar>
+            <GGrid theme={theme} p={props} container spacing={0}>
+                <GGrid theme={theme} item xs={12}>
+                    1
+                </GGrid>
+                <GGrid theme={theme} item xs={4}>
+                    2
+                </GGrid>
+                <GGrid theme={theme} item xs={4}>
+                    3
+                </GGrid>
+                <GGrid id="a1" theme={theme} item xs={4}>
+                    3
+                </GGrid>
+            </GGrid>
 
 
             <Buttonself>yes</Buttonself>
@@ -89,20 +122,20 @@ console.log(props)
                 }
                 }>
                 test
-                </button>
-                <button onClick={() => {
-                    Globalcontextdispatch({
-                        type: "dragclose",
-                        payload: {
-                            test13: {isclose: false}
-                        }
-                    });
-                }}>test13
-                </button>
+            </button>
+            <button onClick={() => {
+                Globalcontextdispatch({
+                    type: "dragclose",
+                    payload: {
+                        test13: {isclose: false}
+                    }
+                });
+            }}>test13
+            </button>
 
-                </React.Fragment>
-                )
-                ;
-                };
+        </React.Fragment>
+    )
+        ;
+};
 
-                export default Navigation;
+export default Navigation;

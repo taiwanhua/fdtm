@@ -95,7 +95,7 @@ console.log(state)
 
     return (
         <Topcontextfunction>
-            {/*<Navigation/>*/}
+            <Navigation/>
             <Drag  initialvar={{id:"test",width:"300px",height:"300px",titletext:"視窗1"}}><div>YES</div><div>YES</div><div>YES</div></Drag>
             <Drag  initialvar={{id:"test13",width:"500px",height:"400px",titletext:"視窗2"}}><div>NONONO</div>
                 <LineButton onClick= { (e)=>setState({...state,background:"red"}) } i="123"  href="https://tw.yahoo.com/" props={state}  >
@@ -112,9 +112,9 @@ console.log(state)
             {/*<LineButton  props={{id:"dfsadf",border:"black 1px solid",textleft:"fff"}}/>*/}
             {/*<ContainedButton  props={{id:"as",textright:"CB",background:"red"}}></ContainedButton>*/}
             {/*<TextButton  props={{id:"as1",textright:"CB"}} />*/}
-            {/*<SimpleSelect props={{a:11,b:22,c:33}} showvalue={true} labelname="one" keep={["a"]} kill={["b"]} />*/}
-            {/*<SimpleSelect props={{a:11,b:22,c:33}}  />*/}
-            <Droptable drop={{RorC:"R"}} data={Jsondata}/>
+            <SimpleSelect props={{a:11,b:22,c:33}} showvalue={true} labelname="one" keep={["a"]} kill={["b"]} />
+            <SimpleSelect props={{a:11,b:22,c:33}}  />
+            <Droptable drop={{RorC:"C"}} data={Jsondata}/>
 
 
 

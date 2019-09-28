@@ -209,10 +209,10 @@ const Drag = (props) => {
         let leftbeforemax = parseInt(initalleft);//放大以前視窗left
         let topbeforemax = parseInt(initaltop);//放大以前視窗right
         let ismove = true;//用來判斷這次是不是在拖拽視窗，需不需要再次儲存left、top
-        let fixtop = 100;//用來控制視窗拖拽時，上方多少px不能是拖拽範圍                4.修改四周多少px不能是拖拽、縮放範圍
+        let fixtop = 50;//用來控制視窗拖拽時，上方多少px不能是拖拽範圍                4.修改四周多少px不能是拖拽、縮放範圍
         let fixright = 100;//用來控制視窗拖拽時，右方多少px不能是拖拽範圍              4.修改四周多少px不能是拖拽、縮放範圍
         let fixleft = 100;//用來控制視窗拖拽時，左方多少px不能是拖拽範圍               4.修改四周多少px不能是拖拽、縮放範圍
-        let fixbottom = 100;//用來控制視窗拖拽時，下方多少px不能是拖拽範圍             4.修改四周多少px不能是拖拽、縮放範圍
+        let fixbottom = 50;//用來控制視窗拖拽時，下方多少px不能是拖拽範圍             4.修改四周多少px不能是拖拽、縮放範圍
 
         /**
                  * 透過ID取得DOM函數

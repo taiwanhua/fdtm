@@ -75,13 +75,14 @@ export const SimpleSelect = ({props, ...other}) => {
             ".MuiSelect-select": {
                 color: "red",
             },
+
         }
         ,
         menu: {
             // MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-menu-481 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button
             color: "blue",
             background: "purple",
-            "&& .MuiPaper-root":{
+            "&& .MuiPaper-root": {
                 background: "yellow",
             },
             "&.MuiListItem-button": {
@@ -89,7 +90,7 @@ export const SimpleSelect = ({props, ...other}) => {
                 color: "green",
             },
             "&.MuiListItem-button:hover": {
-                // background: "red",
+                background: "blue",
                 color: "green",
             },
             "&.Mui-selected": {
@@ -100,6 +101,7 @@ export const SimpleSelect = ({props, ...other}) => {
                 //針對上一次選擇的選項
                 color: "black",
             },
+
         },
         menucontainer: {
             background: "yellow"
