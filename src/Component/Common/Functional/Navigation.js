@@ -12,6 +12,7 @@ import {createMuiTheme} from "@material-ui/core";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import {SimpleSelect} from "./Selects";
+import {StateNotRerendercontainer_SimpleSelect1,StateNotRerendercontainer_SimpleSelect2} from "../Container/StateNotRerendercontainer";
 
 
 //spacing為[0,10]之區間的數，控制元素間間格距離(padding)每一單位為8px
@@ -19,7 +20,7 @@ import {SimpleSelect} from "./Selects";
 
 
 const Navigation = props => {
-    const {Globalcontext, Globalcontextdispatch, state1, dispatch1} = useContext(Topcontext);
+    // const {Globalcontext, Globalcontextdispatch, state1, dispatch1} = useContext(Topcontext);
     // console.log("state",state)
     // console.log("state1",state1)
     // console.log(window)
@@ -86,11 +87,17 @@ const Navigation = props => {
                 <div id="FDTMLogo">
 
                 </div>
-                <SimpleSelect props={{a:11,b:22,c:33}} showvalue={true} selectSetting={{muiSelectWidth:"300px",labelname:"one1"}}  keep={["a"]} kill={["b"]} />
-
-
-
-
+                {/*<SimpleSelect props={{a: 11, b: 22, c: 33}} showvalue={true} handleChange={() => {*/}
+                    {/*Globalcontextdispatch({*/}
+                        {/*type: "dragclose",*/}
+                        {/*payload: {*/}
+                            {/*test: {isclose: false}*/}
+                        {/*}*/}
+                    {/*});*/}
+                {/*}} selectSetting={{muiSelectWidth: "300px", labelname: "one1"}} keep={["a"]} kill={["b"]}/>*/}
+                <StateNotRerendercontainer_SimpleSelect1/>
+                <StateNotRerendercontainer_SimpleSelect2/>
+                <SimpleSelect props={{a:11,b:22,c:33,d:34,e:21,f:32,g:51}} defaultSelectItemValue={{itemvalue:51}}  selectSetting={{muiSelectWidth:"300px"}}/>
 
 
 
@@ -113,27 +120,27 @@ const Navigation = props => {
 
             <Buttonself>yes</Buttonself>
 
-            <button
-                onClick={() => {
-                    Globalcontextdispatch({
-                        type: "dragclose",
-                        payload: {
-                            test: {isclose: false}
-                        }
-                    });
-                }
-                }>
-                test
-            </button>
-            <button onClick={() => {
-                Globalcontextdispatch({
-                    type: "dragclose",
-                    payload: {
-                        test13: {isclose: false}
-                    }
-                });
-            }}>test13
-            </button>
+            {/*<button*/}
+                {/*onClick={() => {*/}
+                    {/*Globalcontextdispatch({*/}
+                        {/*type: "dragclose",*/}
+                        {/*payload: {*/}
+                            {/*test: {isclose: false}*/}
+                        {/*}*/}
+                    {/*});*/}
+                {/*}*/}
+                {/*}>*/}
+                {/*test*/}
+            {/*</button>*/}
+            {/*<button onClick={() => {*/}
+                {/*Globalcontextdispatch({*/}
+                    {/*type: "dragclose",*/}
+                    {/*payload: {*/}
+                        {/*test13: {isclose: false}*/}
+                    {/*}*/}
+                {/*});*/}
+            {/*}}>test13*/}
+            {/*</button>*/}
 
         </React.Fragment>
     )

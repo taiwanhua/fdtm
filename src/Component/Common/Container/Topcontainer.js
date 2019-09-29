@@ -112,8 +112,8 @@ console.log(state)
             {/*<LineButton  props={{id:"dfsadf",border:"black 1px solid",textleft:"fff"}}/>*/}
             {/*<ContainedButton  props={{id:"as",textright:"CB",background:"red"}}></ContainedButton>*/}
             {/*<TextButton  props={{id:"as1",textright:"CB"}} />*/}
-            <SimpleSelect props={{a:11,b:22,c:33}} showvalue={true} selectSetting={{muiSelectWidth:"300px",labelname:"one1"}}  keep={["a"]} kill={["b"]} />
-            <SimpleSelect props={{a:11,b:22,c:33}}  selectSetting={{muiSelectWidth:"300px"}}/>
+            {/*<SimpleSelect props={{a:11,b:22,c:33,d:44,e:21,f:32,g:51,h:92,i:43,j:71,k:28,l:93}} showvalue={true} selectSetting={{muiSelectWidth:"300px",labelname:"one1",MuiSelect_border:"2px solid red",MuiSelect_borderradius:"20px",MuiSelect_hover_background:"red",MuiListItem_hover_background:"#b18ea6"}}  keep={["a"]} kill={["b"]} />*/}
+            <SimpleSelect props={{a:11,b:22,c:33,d:34,e:21,f:32,g:51}} defaultSelectItemValue={{itemvalue:51}}  selectSetting={{muiSelectWidth:"300px"}}/>
             <Droptable drop={{RorC:"C"}} data={Jsondata} />
 
 

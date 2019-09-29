@@ -20,7 +20,16 @@ import Select from "@material-ui/core/Select";
  * screen width  |--------|--------|--------|--------|-------->    <br>
  * range             |   xs    |   sm    |   md  |   lg     |   xl      <br>
  *  父組件控制:
- *  1.
+ *  1. handleChange : (可選)由父組件傳入 setState 或 dispatch 的方法，供SimpleSelect(基本下拉選單)更新state，不傳也沒關係，因SimpleSelect內部也有 state 控制，使用如 :
+ *      <SimpleSelect props={{a: 11, b: 22, c: 33}} showvalue={true} handleChange={() => {
+ *          Globalcontextdispatch({
+ *              type: "dragclose",
+ *                  payload: {
+ *                      test: {isclose: false}
+ *                  }
+ *              });
+ *          }} selectSetting={{muiSelectWidth: "300px", labelname: "one1"}} keep={["a"]} kill={["b"]}/>
+ *          ，另外若有需要請以 StateNotRerendercontainer 容器包裹，以阻止多餘的重新渲染
  * 必傳參數:
  * 1. props : 下拉選單內容，由於props專門用於設定下拉選單內容 ( 如 : <SimpleSelect props={{a:11,b:22,c:33}}  /> )，所以其他參數個別傳遞
  * 2. muiSelectWidth : 下拉選單寬度，傳遞至SelectSetting的props，使用如 : <SimpleSelect props={{a:11,b:22,c:33}} showvalue={true} selectSetting={{muiSelectWidth:"300px", labelname:"one"}} keep={["a"]} kill={["b"]} />
@@ -29,24 +38,51 @@ import Select from "@material-ui/core/Select";
  * 2. disabled : (boolean) 是否啟用 (暫不開放)
  * 3. label_background : 小標題背景色，使用如 : <SimpleSelect props={{a:11,b:22,c:33}} showvalue={true} selectSetting={{muiSelectWidth:"300px", labelname:"one"}} keep={["a"]} kill={["b"]} />
  * 4. label_border :小標題邊框
- * 5. label_border-radius : 小標題邊框圓角
+ * 5. label_borderradius : 小標題邊框圓角
  * 6. label_color : 小標題文字顏色
  * 7. label_fontSize : 小標題文字大小
  * 8. labelname : 小標題文字
- * 9.
+ * 9. MuiSelect_height : 下拉選單高度
+ * 10. MuiSelect_borderradius : 下拉選單邊框圓角
+ * 11. MuiSelect_background : 下拉選單背景色
+ * 12. MuiSelect_border : 下拉選單邊框
+ * 13. MuiSelect_hover_background : 下拉選單hover背景色
+ * 14. underline_before : 下拉選單選擇前底線
+ * 15. underline_after : 下拉選單選擇前底線(推薦優先underline_before使用)
+ * 16. MuiListItem_InMuiSelect_color : 下拉選單內選項文字顏色
+ * 17. MuiListItem_InMuiSelect_textAlign : 下拉選單內選項文字對齊 ( center、left、right )
+ * 18. MuiListItem_background : 選項背景色
+ * 19. MuiListItem_color : 選項文字顏色
+ * 20. MuiListItem_border : 選項邊框
+ * 21. MuiListItem_borderradius : 選項邊框圓角
+ * 22. MuiListItem_hover_background : 選項hover背景色
+ * 23. MuiListItem_hover_color : 選項hover文字顏色
+ * 24. MuiListItem_hover_border : 選項hover邊框
+ * 25. MuiListItem_hover_borderradius : 選項hover邊框圓角
+ * 26. MuiListItem_selected_background : 上次被選擇選項背景色
+ * 27. MuiListItem_selected_color :上次被選擇選項文字顏色
+ * 28. MuiListItem_selected_border :上次被選擇選項邊框
+ * 29. MuiListItem_selected_borderradius :上次被選擇選項邊框圓角
+ * 30. MuiListItem_selected_hover_background :上次被選擇選項hover背景色
+ * 31. MuiListItem_selected_hover_color : 上次被選擇選項hover文字顏色
+ * 32. MuiListItem_selected_hover_border : 上次被選擇選項hover邊框
+ * 33. MuiListItem_selected_hover_borderradius : 上次被選擇選項hover邊框圓角
+ * 34. itemvalue : 下拉選單預選的選項，預設為false，使用如 : <SimpleSelect props={{a:11,b:22,c:33,d:34,e:21,f:32,g:51}} showvalue={true} defaultSelectItemValue={{itemvalue:51}} selectSetting={{muiSelectWidth:"300px"}}/>
+ * 35. keep : 下拉選單內選項篩選後要保留哪些選項，請傳入陣列，使用如 : <SimpleSelect props={{a:11,b:22,c:33,d:34,e:21,f:32,g:51}} showvalue={true} defaultSelectItemValue={{itemvalue:51}} selectSetting={{muiSelectWidth:"300px"}}  keep={["a"]} kill={["b"]} />
+ * 36. kill : 下拉選單內選項篩選後要刪除哪些選項，請傳入陣列，使用如 : <SimpleSelect props={{a:11,b:22,c:33,d:34,e:21,f:32,g:51}} showvalue={true} defaultSelectItemValue={{itemvalue:51}} selectSetting={{muiSelectWidth:"300px"}}  keep={["a"]} kill={["b"]} />
  *
- * 3. color : 字體顏色  (暫不適用xs、sm、md、lg、xl)
- * 4. background : 背景色  (暫不適用xs、sm、md、lg、xl)
- * 5. width  : 寬度  (暫不適用xs、sm、md、lg、xl)
- * 6. height : 高度  (暫不適用xs、sm、md、lg、xl)
- * 7. border : 邊框樣式  (暫不適用xs、sm、md、lg、xl)
- * 8. spacing : spacing為[0,10]之區間的數，控制元素間間格距離(padding)每一單位為8px  (暫不適用xs、sm、md、lg、xl)
- * 9. hoverbackground :鼠標在按鈕上的背景色  (暫不適用xs、sm、md、lg、xl)
+ * X. color : 字體顏色  (暫不適用xs、sm、md、lg、xl)
+ * X. background : 背景色  (暫不適用xs、sm、md、lg、xl)
+ * X. width  : 寬度  (暫不適用xs、sm、md、lg、xl)
+ * X. height : 高度  (暫不適用xs、sm、md、lg、xl)
+ * X. border : 邊框樣式  (暫不適用xs、sm、md、lg、xl)
+ * X. spacing : spacing為[0,10]之區間的數，控制元素間間格距離(padding)每一單位為8px  (暫不適用xs、sm、md、lg、xl)
+ * X. hoverbackground :鼠標在按鈕上的背景色  (暫不適用xs、sm、md、lg、xl)
  *
- * @file: Buttons.js
- * @constant Styled-component_邊框線按紐:LineButton
+ * @file: Selects.js
+ * @constant Styled-component_基本下拉選單:SimpleSelect
  * @author: Arhua Ho
- * @date: 2019/8/4
+ * @date: 2019/9/29
  */
 export const SimpleSelect = ({props, ...other}) => {
 
@@ -58,26 +94,27 @@ export const SimpleSelect = ({props, ...other}) => {
 
             "&& label": {
                 //小標題樣式
-                background: "red",
-                border: "1px solid blue ",
-                color: "white",
-                "border-radius": "8px",
-                fontSize: "5px",
+                background: other.selectSetting.label_background || "#5c94bd",
+                border: other.selectSetting.label_border || "1px solid #470938",
+                color: other.selectSetting.label_color || "#d9eeec",
+                "border-radius": other.selectSetting.label_borderradius || "6px",
+                fontSize: other.selectSetting.fontSize || "17px",
             },
             "& .MuiInputBase-root": {
                 //邊框樣式 ---組1
-                height: "30px",
+                height: (other.selectSetting.MuiSelect_height && parseInt(other.selectSetting.MuiSelect_height) + "px") || "30px",
                 width: other.selectSetting.muiSelectWidth,
-                border: "1px solid red ",
-                "border-radius": "8px",
+                border: other.selectSetting.MuiSelect_border || "2px solid #5c94bd ",
+                "border-radius": other.selectSetting.MuiSelect_borderradius || "8px",
             },
             "& .MuiSelect-root": {
                 //下拉選單樣式 ---組1
                 //color: "blue",
-                height: "15px", //高度為邊框高度-15
-                width:  other.selectSetting.muiSelectWidth,
-                "border-radius": "8px",
-                background: "pink",
+                height: (other.selectSetting.MuiSelect_height && parseInt(other.selectSetting.MuiSelect_height) - 15 + "px") || "15px", //高度為邊框高度-15
+                width: other.selectSetting.muiSelectWidth,
+                "border-radius": other.selectSetting.MuiSelect_borderradius || "8px",
+                background: other.selectSetting.MuiSelect_background || "#5c94bd",
+                border: other.selectSetting.MuiSelect_border || "1px solid #5c94bd ",
             },
             "& .MuiSelect-root:hover": {
                 //下拉選單hover樣式 ---組1
@@ -85,25 +122,24 @@ export const SimpleSelect = ({props, ...other}) => {
                 // height: "15px", //高度為邊框高度-15
                 // width: "300px",
                 // "border-radius": "8px",
-                background: "orange",
+                background: other.selectSetting.MuiSelect_hover_background || "#3c9d9b",
             },
             "&& .MuiInput-underline:before": {
                 //底線選擇前樣式 ---組2
-                borderBottom: "0px solid rgba(0, 0, 0, 0.42)",
+                borderBottom: other.selectSetting.underline_before || "0px solid rgba(0, 0, 0, 0.42)",
             },
             "&& .MuiInput-underline:after": {
                 //底線選擇後樣式 ---組2
-                borderBottom: "0px solid rgba(0, 0, 0, 0.42)",
+                borderBottom: other.selectSetting.underline_after || "0px solid rgba(0, 0, 0, 0.42)",
             },
         }
         ,
         selectValue: {
             "&& .MuiSelect-select": {
                 ////下拉選單字體樣式
-                color: "red",
-                textAlign: "center", //center,left,right
+                color: other.selectSetting.MuiListItem_InMuiSelect_color || "#d9eeec",
+                textAlign: other.selectSetting.MuiListItem_InMuiSelect_textAlign || "center", //center,left,right
             },
-
         }
         ,
         menu: {
@@ -115,31 +151,31 @@ export const SimpleSelect = ({props, ...other}) => {
             // },
             "&.MuiListItem-button": {
                 //未被選中之下拉選項
-                background: "red",
-                color: "green",
-                border: "1px solid red ",
-                "border-radius": "8px",
+                background: other.selectSetting.MuiListItem_background || "#64b2cd",
+                color: other.selectSetting.MuiListItem_color || "#105e62",
+                border: other.selectSetting.MuiListItem_border || "2px solid #b6e6bd ",
+                "border-radius": other.selectSetting.MuiListItem_borderradius || "8px",
             },
             "&.MuiListItem-button:hover": {
                 //被hover之下拉選項
-                background: "blue",
-                color: "green",
-                border: "1px solid red ",
-                "border-radius": "8px",
+                background: other.selectSetting.MuiListItem_hover_background || "#f77754",
+                color: other.selectSetting.MuiListItem_hover_color || "#105e62",
+                border: other.selectSetting.MuiListItem_hover_border || "2px solid #b6e6bd ",
+                "border-radius": other.selectSetting.MuiListItem_hover_borderradius || "8px",
             },
             "&.Mui-selected": {
                 //上一次選擇的選項之下拉選項
-                background: "black",
-                color: "black",
-                border: "1px solid red ",
-                "border-radius": "8px",
+                background: other.selectSetting.MuiListItem_selected_background || "#ef4b4b",
+                color: other.selectSetting.MuiListItem_selected_color || "#105e62",
+                border: other.selectSetting.MuiListItem_selected_border || "2px solid #b6e6bd ",
+                "border-radius": other.selectSetting.MuiListItem_selected_borderradius || "8px",
             },
             "&.Mui-selected:hover": {
                 //上一次選擇的選項且被hover之下拉選項
-                color: "black",
-                background: "red",
-                border: "1px solid red ",
-                "border-radius": "8px",
+                color: other.selectSetting.MuiListItem_selected_hover_color || "#105e62",
+                background: other.selectSetting.MuiListItem_selected_hover_background || "#f77754",
+                border: other.selectSetting.MuiListItem_selected_hover_border || "2px solid #b6e6bd ",
+                "border-radius": other.selectSetting.MuiListItem_selected_hover_borderradius || "8px",
             },
         }
         ,
@@ -153,7 +189,7 @@ export const SimpleSelect = ({props, ...other}) => {
 
     const classes = useStyles();
     const [values, setValues] = React.useState({
-        SelectValue: "",
+        SelectValue: (other.defaultSelectItemValue && other.defaultSelectItemValue.itemvalue) || "",
         name: ""
     });
 
@@ -164,6 +200,8 @@ export const SimpleSelect = ({props, ...other}) => {
             ...oldValues,
             [event.target.name]: event.target.value
         }));
+        ((other.handleChange && other.handleChange()) || console.log("No HandleChange"))
+
     }
 
     //移除kill陣列內內容
@@ -179,10 +217,12 @@ export const SimpleSelect = ({props, ...other}) => {
     return (
         <form className={classes.root} autoComplete="off">
             <FormControl className={classes.formControl} disabled={false}>
-                <InputLabel htmlFor="simpleSelect">{other.selectSetting.labelname && other.selectSetting.labelname}</InputLabel>
+                <InputLabel
+                    htmlFor="simpleSelect">{other.selectSetting.labelname && other.selectSetting.labelname}</InputLabel>
                 <Select
                     value={values.SelectValue}
-                    onChange={other.handleChange || handleChange}
+                    // onChange={other.handleChange || handleChange}
+                    onChange={handleChange}
                     inputProps={{
                         name: "SelectValue",
                         id: "simpleSelect",
