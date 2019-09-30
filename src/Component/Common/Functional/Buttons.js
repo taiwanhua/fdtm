@@ -54,6 +54,7 @@ export const LineButton = ({props, ...other}) => {
             width: props.width,
             height: props.height,
             border: props.border,
+            borderRadius: "8px",//要改參數化
             "&:hover": {
                 background: props.hoverbackground,
             },

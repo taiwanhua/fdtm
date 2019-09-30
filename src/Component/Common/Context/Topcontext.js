@@ -41,8 +41,17 @@ export const Topcontextfunction = props => {
 
     const [Globalcontext, Globalcontextdispatch] = useReducer(Globalcontextreducer, {
         userinfo: {},
-        test: {isclose: false},
-        test13: {isclose: false}
+        SavingsAccount: {isclose: true},
+        MarginAccount: {isclose: true},
+        FuturesTransactHistory: {isclose: true},
+        FuturesTransactStock: {isclose: true},
+        FuturesTransactEquity: {isclose: true},
+        Transfer: {isclose: true},
+        Loan: {isclose: true},
+        Repayment: {isclose: true},
+        FuturesTrade: {isclose: true},
+        WishingPool: {isclose: true},
+        UserInfo: {isclose: true},
     });//設定useReducer
     // console.log(color, dispatch);
     // console.log(props)

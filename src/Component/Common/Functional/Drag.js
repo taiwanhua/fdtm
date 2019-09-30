@@ -215,19 +215,19 @@ const Drag = (props) => {
         let fixbottom = 50;//用來控制視窗拖拽時，下方多少px不能是拖拽範圍             4.修改四周多少px不能是拖拽、縮放範圍
 
         /**
-                 * 透過ID取得DOM函數
-                 *<br>
-                 * <br>
-                 * Description:<br>
-                 * 透過ID取得DOM
-                 *
-                 * @file: Drag.js
-                 * @method   function_透過ID取得DOM函數: byId
-                 * @param {object_or_string} object_or_string - 欲取得DOM的元素其ID
-                 * @return {DOM} object_or_string - 透過ID取得的DOM
-                 * @author: Arhua Ho
-                 * @date: 2019/7/27
-                 */
+         * 透過ID取得DOM函數
+         *<br>
+         * <br>
+         * Description:<br>
+         * 透過ID取得DOM
+         *
+         * @file: Drag.js
+         * @method   function_透過ID取得DOM函數: byId
+         * @param {object_or_string} object_or_string - 欲取得DOM的元素其ID
+         * @return {DOM} object_or_string - 透過ID取得的DOM
+         * @author: Arhua Ho
+         * @date: 2019/7/27
+         */
         const byId = function (object_or_string) {
             //因為使用ID不需要透過此函數，可直接調用；亦提供方法
             // document.getElementById()

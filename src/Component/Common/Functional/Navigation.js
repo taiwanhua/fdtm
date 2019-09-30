@@ -12,7 +12,7 @@ import {createMuiTheme} from "@material-ui/core";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import {FunctionSelect, SimpleSelect} from "./Selects";
-import {StateNotRerendercontainer_SimpleSelect1,StateNotRerendercontainer_SimpleSelect2,StateNotRerendercontainer_FunctionSelect1} from "../Container/StateNotRerendercontainer";
+import {StateNotRerendercontainer_reRoute,StateNotRerendercontainer_AccountList,StateNotRerendercontainer_AccountingList,StateNotRerendercontainer_InternetBanking,StateNotRerendercontainer_Trade,StateNotRerendercontainer_WishingPool,StateNotRerendercontainer_UserInfo,StateNotRerendercontainer_SimpleSelect1,StateNotRerendercontainer_SimpleSelect2,StateNotRerendercontainer_FunctionSelect1} from "../Container/StateNotRerendercontainer";
 
 
 //spacing為[0,10]之區間的數，控制元素間間格距離(padding)每一單位為8px
@@ -95,13 +95,18 @@ const Navigation = props => {
                         {/*}*/}
                     {/*});*/}
                 {/*}} selectSetting={{muiSelectWidth: "300px", labelname: "one1"}} keep={["a"]} kill={["b"]}/>*/}
-                <StateNotRerendercontainer_SimpleSelect1/>
-                <StateNotRerendercontainer_SimpleSelect2/>
-                <SimpleSelect props={{a:11,b:22,c:33,d:34,e:21,f:32,g:51}} defaultSelectItemValue={{itemvalue:51}}  selectSetting={{muiSelectWidth:"300px"}}/>
-                <FunctionSelect  props={{a:11,b:22,c:33,d:34,e:21,f:32,g:51}} defaultSelectItemValue={{Ah:5412}} showvalue={false} selectSetting={{muiSelectWidth:"300px"}}/>
-                <StateNotRerendercontainer_FunctionSelect1/>
-
-
+                <StateNotRerendercontainer_reRoute/>
+                <StateNotRerendercontainer_AccountList/>
+                <StateNotRerendercontainer_AccountingList/>
+                <StateNotRerendercontainer_InternetBanking/>
+                <StateNotRerendercontainer_Trade/>
+                <StateNotRerendercontainer_WishingPool/>
+                <StateNotRerendercontainer_UserInfo/>
+                {/*<StateNotRerendercontainer_SimpleSelect1/>*/}
+                {/*<StateNotRerendercontainer_SimpleSelect2/>*/}
+                {/*<SimpleSelect props={{a:11,b:22,c:33,d:34,e:21,f:32,g:51}} defaultSelectItemValue={{itemvalue:51}}  selectSetting={{muiSelectWidth:"300px"}}/>*/}
+                {/*<FunctionSelect  props={{a:11,b:22,c:33,d:34,e:21,f:32,g:51}} defaultSelectItemValue={{Ah:5412}} showvalue={false} selectSetting={{muiSelectWidth:"300px"}}/>*/}
+                {/*<StateNotRerendercontainer_FunctionSelect1/>*/}
 
             </Navbar>
             {/*<GGrid theme={theme} p={props} container spacing={0}>*/}

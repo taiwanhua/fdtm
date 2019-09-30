@@ -192,7 +192,8 @@ export const SimpleSelect = ({props, ...other}) => {
         ,
         formControl: {
             //下拉選單容器樣式，保留此項暫不開放設置
-            //margin: theme.spacing(1),
+            marginLeft: theme.spacing(1),
+            marginRight: theme.spacing(1),
             //minWidth: 120,
             //height:"200px",
         },
@@ -451,7 +452,8 @@ export const FunctionSelect = ({props, ...other}) => {
         ,
         formControl: {
             //下拉選單容器樣式，保留此項暫不開放設置
-            //margin: theme.spacing(1),
+            marginLeft: theme.spacing(1),
+            marginRight: theme.spacing(1),
             //minWidth: 120,
             //height:"200px",
         },
