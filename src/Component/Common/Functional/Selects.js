@@ -20,15 +20,25 @@ import Select from "@material-ui/core/Select";
  * screen width  |--------|--------|--------|--------|-------->    <br>
  * range             |   xs    |   sm    |   md  |   lg     |   xl      <br>
  *  父組件控制:
- *  1. handleChange : (可選)由父組件傳入 setState 或 dispatch 的方法，供SimpleSelect(基本下拉選單)更新state，不傳也沒關係，因SimpleSelect內部也有 state 控制，使用如 :
- *      <SimpleSelect props={{a: 11, b: 22, c: 33}} showvalue={true} handleChange={() => {
- *          Globalcontextdispatch({
- *              type: "dragclose",
- *                  payload: {
- *                      test: {isclose: false}
- *                  }
- *              });
- *          }} selectSetting={{muiSelectWidth: "300px", labelname: "one1"}} keep={["a"]} kill={["b"]}/>
+ *  1. handleChange : (可選)由父組件傳入 setState 或 dispatch 的方法 ( 請以object傳入，Key名為對應props的Key名 )，供SimpleSelect(基本下拉選單)更新state，不傳也沒關係，因SimpleSelect內部也有 state 控制，使用如 :
+ *      <SimpleSelect props={{a: 11, b: 22, c: 33}} showvalue={true} handleChange={{
+ *          a: () => {
+ *              Globalcontextdispatch({
+ *                  type: "dragclose",
+ *                      payload: {
+ *                          test: {isclose: false}
+ *                      }
+ *                  });
+ *              },
+ *          b: () => {
+ *              Globalcontextdispatch({
+ *                  type: "dragclose",
+ *                      payload: {
+ *                          test13: {isclose: false}
+ *                      }
+ *                  });
+ *              }
+ *      }} selectSetting={{muiSelectWidth: "300px", labelname: "one1"}} keep={["a","b","c"]} kill={[]}/>
  *          ，另外若有需要請以 StateNotRerendercontainer 容器包裹，以阻止多餘的重新渲染
  * 必傳參數:
  * 1. props : 下拉選單內容，由於props專門用於設定下拉選單內容 ( 如 : <SimpleSelect props={{a:11,b:22,c:33}}  /> )，所以其他參數個別傳遞
@@ -193,6 +203,10 @@ export const SimpleSelect = ({props, ...other}) => {
         name: ""
     });
 
+    function getKeyByValue(object, value) {
+        return Object.keys(object).find(key => object[key] === value);
+    }
+
     function handleChange(event) {
         console.log("V:", values)
         console.log("tar:", event.target);
@@ -200,7 +214,7 @@ export const SimpleSelect = ({props, ...other}) => {
             ...oldValues,
             [event.target.name]: event.target.value
         }));
-        ((other.handleChange && other.handleChange()) || console.log("No HandleChange"))
+        (((other.handleChange &&  other.handleChange[getKeyByValue(props,event.target.value)] ) && other.handleChange[getKeyByValue(props,event.target.value)]()) || console.log("No HandleChange"))
 
     }
 
