@@ -8,6 +8,9 @@ import {SimpleSelect} from "../Functional/Selects"
 import DeleteIcon from '@material-ui/icons/Delete';
 import {makeStyles} from "@material-ui/core/styles/index";
 import {Droptable} from "../Functional/Droptable";
+import {ECt} from "../Functional/Charts";
+
+
 
 function Topcontainer(props) {
     const useStyles = makeStyles((theme) => ({
@@ -149,10 +152,8 @@ function Topcontainer(props) {
                 <div>YES</div>
                 <div>YES</div>
             </Drag>
-            <Drag initialvar={{id: "FuturesTrade", width: "300px", height: "300px", titletext: "期貨交易"}}>
-                <div>YES</div>
-                <div>YES</div>
-                <div>YES</div>
+            <Drag initialvar={{id: "FuturesTrade", width: "1100px", height: "500px", titletext: "期貨交易"}}>
+                <ECt/>
             </Drag>
             <Drag initialvar={{id: "WishingPool", width: "300px", height: "300px", titletext: "許願池"}}>
                 <div>YES</div>
@@ -179,6 +180,8 @@ function Topcontainer(props) {
             {/*<SimpleSelect props={{a:11,b:22,c:33,d:34,e:21,f:32,g:51}} defaultSelectItemValue={{itemvalue:51}}  selectSetting={{muiSelectWidth:"300px"}}/>*/}
             <div style={{height: "calc(100vh - 50px)",background:"#3E6B7E"}}>
                 <Droptable drop={{RorC: "C"}} data={Jsondata}/>
+
+
             </div>
 
 
