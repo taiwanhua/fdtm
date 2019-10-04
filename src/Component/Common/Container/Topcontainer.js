@@ -2,14 +2,14 @@ import React, {useState, useEffect, useContext} from 'react';
 import {Topcontext, Topcontextfunction} from "../Context/Topcontext";
 import Navigation from "../Functional/Navigation"
 import Drag from "../Functional/Drag";
+import Dragresizecontext from "../Functional/Dragresizecontext";
 import {LineButton, ContainedButton, TextButton} from "../Functional/Buttons"
 import {SimpleSelect} from "../Functional/Selects"
 
 import DeleteIcon from '@material-ui/icons/Delete';
 import {makeStyles} from "@material-ui/core/styles/index";
 import {Droptable} from "../Functional/Droptable";
-import {ECt} from "../Functional/Charts";
-
+import {ECt, TradeChart} from "../Functional/Charts";
 
 
 function Topcontainer(props) {
@@ -152,13 +152,15 @@ function Topcontainer(props) {
                 <div>YES</div>
                 <div>YES</div>
             </Drag>
-            <Drag initialvar={{id: "FuturesTrade", width: "1100px", height: "500px", titletext: "期貨交易"}}>
-                <ECt/>
-            </Drag>
+            <Dragresizecontext initialvar={{id: "FuturesTrade", width: "1100px", height: "500px", titletext: "期貨交易"}}>
+                {/*<ECt/>*/}
+                <div style={{width: "100%", height: "100%", background: "red"}}>
+                    <TradeChart />
+                </div>
+            </Dragresizecontext>
             <Drag initialvar={{id: "WishingPool", width: "300px", height: "300px", titletext: "許願池"}}>
-                <div>YES</div>
-                <div>YES</div>
-                <div>YES</div>
+                <div style={{width: "100%", height: "100%", background: "red"}}>YES</div>
+
             </Drag>
             <Drag initialvar={{id: "UserInfo", width: "300px", height: "300px", titletext: "個人資訊"}}>
                 <div>YES</div>
@@ -178,7 +180,7 @@ function Topcontainer(props) {
             {/*<SimpleSelect props={{a:11,b:22,c:33,d:44,e:21,f:32,g:51,h:92,i:43,j:71,k:28,l:93}} showvalue={true} selectSetting={{muiSelectWidth:"300px",labelname:"one1",MuiSelect_border:"2px solid red",MuiSelect_borderradius:"20px",MuiSelect_hover_background:"red",MuiListItem_hover_background:"#b18ea6"}}  keep={["a"]} kill={["b"]} />*/}
             <div style={{height: "50px"}}></div>
             {/*<SimpleSelect props={{a:11,b:22,c:33,d:34,e:21,f:32,g:51}} defaultSelectItemValue={{itemvalue:51}}  selectSetting={{muiSelectWidth:"300px"}}/>*/}
-            <div style={{height: "calc(100vh - 50px)",background:"#3E6B7E"}}>
+            <div style={{height: "calc(100vh - 50px)", background: "#3E6B7E"}}>
                 <Droptable drop={{RorC: "C"}} data={Jsondata}/>
 
 
